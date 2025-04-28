@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Edit User: {{ username }}</h2>
+    <form method="post">
+        <div class="mb-3">
+            <label for="role">Role</label>
+            <select name="role" id="role" class="form-control">
+                <option value="user" {% if role == 'user' %}selected{% endif %}>User</option>
+                <option value="admin" {% if role == 'admin' %}selected{% endif %}>Admin</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Update User</button>
+    </form>
+</div>
+{% endblock %}

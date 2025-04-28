@@ -1,0 +1,10 @@
+[
+    {
+        "username": "Tanishq",
+        "password": "scrypt:32768:8:1$v9hFfOone9UaUnGC$4ceea41fefa373e2888ad3f67fcea4284e7957e6503e06f9646bad8b94cf2866cf1c282a25dc8ae5182cfb9e91677903e610fd74d7597844f4efc49d641392c4"
+    },
+    {
+        "username": "Tushar",
+        "password": "654321"
+    }
+]
