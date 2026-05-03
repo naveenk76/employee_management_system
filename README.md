@@ -49,18 +49,6 @@ A comprehensive **Employee Management System** built with Flask and SQLAlchemy. 
 - Employee distribution by department
 - Attendance trends
 
-## 🚀 Tech Stack
-
-| Category | Technologies |
-|----------|-------------|
-| **Backend** | Python 3.8+, Flask, SQLAlchemy |
-| **Database** | SQLite (can be switched to PostgreSQL/MySQL) |
-| **Frontend** | HTML5, CSS3, Bootstrap 5, JavaScript |
-| **Charts** | Chart.js |
-| **Authentication** | Flask-Login, Werkzeug |
-| **Forms** | Flask-WTF |
-| **PDF Generation** | ReportLab / WeasyPrint |
-
 ## 📋 Prerequisites
 
 - Python 3.8 or higher
