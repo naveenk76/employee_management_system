@@ -3,12 +3,11 @@ import json
 import os
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # Use a strong secret key!
+app.secret_key = 'your_secret_key'  
 
 # File where employee data will be stored
 EMPLOYEE_DATA_FILE = 'employees.json'
 
-# In-memory user store (replace this with a database in real applications)
 users = {}
 
 # Load employees from JSON file or initialize as an empty list
@@ -28,7 +27,7 @@ def save_employees(employees):
 @app.route('/', methods=['GET'])
 def home():
     if 'username' in session:
-        search_query = request.args.get('search', '').strip().lower()  # Get search query
+        search_query = request.args.get('search', '').strip().lower() 
         employees = load_employees()
         filtered_employees = []
 
@@ -39,7 +38,7 @@ def home():
                 if str(emp['emp_id']).startswith(search_query) or search_query in emp['name'].lower()
             ]
         else:
-            filtered_employees = employees  # If no search query, show all employees
+            filtered_employees = employees 
 
         return render_template('home.html', employees=filtered_employees)
 
@@ -70,7 +69,7 @@ def register():
             flash("Username already taken. Please choose a different username.")
             return redirect(url_for('register'))
 
-        users[username] = {'password': password, 'role': 'user'}  # Default role is user
+        users[username] = {'password': password, 'role': 'user'} 
         flash("Registration successful! Please log in.")
         return redirect(url_for('login'))
 
@@ -125,7 +124,7 @@ def edit_user(username):
 
     if request.method == 'POST':
         new_role = request.form['role']
-        users[username]['role'] = new_role  # Update the user's role
+        users[username]['role'] = new_role 
         flash(f"User '{username}' updated successfully!")
         return redirect(url_for('manage_users'))
 
@@ -144,10 +143,9 @@ def add_employee():
         employees = load_employees()
 
         # Add new employee with unique ID
-        emp_id = len(employees) + 1  # Simple ID generation
+        emp_id = len(employees) + 1 
         employees.append({'emp_id': emp_id, 'name': name, 'age': age, 'position': position, 'salary': salary})
 
-        # Save updated employee list
         save_employees(employees)
 
         flash("Employee added successfully!")
@@ -170,7 +168,6 @@ def update_employee(emp_id):
         emp['position'] = request.form['position']
         emp['salary'] = float(request.form['salary'])
 
-        # Save updated employee list
         save_employees(employees)
 
         flash("Employee updated successfully!")
